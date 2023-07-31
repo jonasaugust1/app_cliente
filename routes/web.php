@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+$basePath = "App\Http\Controllers";
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,4 +27,8 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/client', [ClientController::class, 'index'])->name('client');
 });
+
+
