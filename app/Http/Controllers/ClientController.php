@@ -11,7 +11,7 @@ class ClientController extends Controller
         $this->middleware('auth:sanctum');
     }
     public function index(){
-        $clients = Client::all();
+        $clients = Client::paginate(15);
 
         return view('client.index', compact('clients'));
     }
