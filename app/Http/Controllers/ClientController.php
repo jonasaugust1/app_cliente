@@ -35,4 +35,41 @@ class ClientController extends Controller
 
         return redirect()->route('client.add');
     }
+
+    public function edit($id){
+        $client = Client::find($id);
+
+        if(!$client){
+            Session::flash('flash_message', [
+                'msg'=>"Cliente não encontrado",
+                'class'=>"alert-danger"
+            ]);
+
+            return redirect()->route('client.add');
+        }
+
+        return view('client.edit', compact('client'));
+    }
+
+    public function update(Request $request, $id){
+        $client = Client::find($id);
+
+        if(!$client){
+            Session::flash('flash_message', [
+                'msg'=>"Cliente não encontrado",
+                'class'=>"alert-danger"
+            ]);
+
+            return redirect()->route('client.add');
+        }
+
+        $client->update($request->all());
+
+        Session::flash('flash_message', [
+            'msg'=>"Cliente atualizado com sucesso",
+            'class'=>"alert-success"
+        ]);
+
+        return redirect()->route('client');
+    }
 }

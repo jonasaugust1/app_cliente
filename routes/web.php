@@ -31,6 +31,8 @@ Route::middleware([
     Route::get('/client', [ClientController::class, 'index'])->name('client');
     Route::get('/client/add', [ClientController::class, 'add'])->name('client.add');
     Route::post('/client/save', [ClientController::class, 'save'])->name('client.save');
+    Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('client.edit');
+    Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('client.update');
 });
 
 
