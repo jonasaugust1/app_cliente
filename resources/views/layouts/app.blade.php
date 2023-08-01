@@ -34,6 +34,18 @@
                 </header>
             @endif
 
+            @if(Session::has('flash_message'))
+                <div class="container d-flex justify-content-center mt-4">
+                    <div class="row">
+                        <div class="cold-md-10 cold-md-offset-1">
+                            <div class="alert text-center {{ Session::get('flash_message')['class'] }}">
+                                {{ Session::get('flash_message')['msg'] }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
             <!-- Page Content -->
             <main>
                 {{ $slot }}

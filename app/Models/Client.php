@@ -9,6 +9,7 @@ class Client extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name', 'email', 'address'];
     public function telephones(){
         return $this->hasMany('App\Models\TelePhone');
     }

@@ -29,6 +29,8 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/client', [ClientController::class, 'index'])->name('client');
+    Route::get('/client/add', [ClientController::class, 'add'])->name('client.add');
+    Route::post('/client/save', [ClientController::class, 'save'])->name('client.save');
 });
 
 

@@ -8,11 +8,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-2">
-               <p>
-                <a class="btn btn-info" href="#">Adicionar</a>
-               </p>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">
+                        Clientes
+                    </li>
+                    <li class="breadcrumb-item">
+                    <a href="{{route('client.add')}}">Adicionar</a>
+                    </li>
+                </ol>
 
-               <table class="table table-bordered">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -38,10 +43,10 @@
                         @endforelse
                         </tbody>
                     </thead>
-               </table>
-               <div align="center">
+                </table>
+                <div align="center">
                     {!! $clients->links() !!}
-               </div>
+                </div>
             </div>
         </div>
     </div>
