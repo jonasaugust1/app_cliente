@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TelephoneController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 /*
@@ -34,8 +35,10 @@ Route::middleware([
     Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('client.edit');
     Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('client.update');
     Route::get('/client/delete/{id}', [ClientController::class, 'delete'])->name('client.delete');
+    Route::get('/client/detail/{id}', [ClientController::class, 'detail' ])->name('client.detail');
 
-    Route::get('client/detail/{id}', [ClientController::class, 'detail' ])->name('client.detail');
+    Route::get('telephone/add/{id}', [TelephoneController::class, 'add' ])->name('telephone.add');
+    Route::post('telephone/save/{id}', [TelephoneController::class, 'save' ])->name('telephone.save');
 });
 
 

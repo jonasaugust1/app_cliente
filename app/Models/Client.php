@@ -15,6 +15,6 @@ class Client extends Model
         return $this->hasMany(Telephone::class);
     }
     public function addTelephone(Telephone $phone){
-        return $this->getTelephones()->save($phone);
+        return $this->telephones()->save($phone);
     }
 }

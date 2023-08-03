@@ -57,7 +57,7 @@
                     </thead>
                 </table>
 
-                <a class="btn btn-info" href="{{route('client.add')}}">Adicionar Telefone</a>
+                <a class="btn btn-info" href="{{route('telephone.add', $client->id)}}">Adicionar Telefone</a>
             </div>
         </div>
     </div>
