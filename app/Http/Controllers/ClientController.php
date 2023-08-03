@@ -72,4 +72,17 @@ class ClientController extends Controller
 
         return redirect()->route('client');
     }
+
+    public function delete($id){
+        $client = Client::find($id);
+
+        $client->delete();
+
+        Session::flash('flash_message', [
+            'msg'=>"Cliente deletado com sucesso",
+            'class'=>"alert-success"
+        ]);
+
+        return redirect()->route('client');
+    }
 }
