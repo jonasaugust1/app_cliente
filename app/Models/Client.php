@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Telephone;
 
 class Client extends Model
 {
@@ -11,7 +12,7 @@ class Client extends Model
 
     protected $fillable = ['name', 'email', 'address'];
     public function telephones(){
-        return $this->hasMany('App\Models\TelePhone');
+        return $this->hasMany(Telephone::class);
     }
     public function addTelephone(Telephone $phone){
         return $this->getTelephones()->save($phone);

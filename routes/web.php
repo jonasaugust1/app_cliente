@@ -34,6 +34,8 @@ Route::middleware([
     Route::get('/client/edit/{id}', [ClientController::class, 'edit'])->name('client.edit');
     Route::put('/client/update/{id}', [ClientController::class, 'update'])->name('client.update');
     Route::get('/client/delete/{id}', [ClientController::class, 'delete'])->name('client.delete');
+
+    Route::get('client/detail/{id}', [ClientController::class, 'detail' ])->name('client.detail');
 });
 
 

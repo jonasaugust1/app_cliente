@@ -36,6 +36,11 @@ class ClientController extends Controller
         return redirect()->route('client.add');
     }
 
+    public function detail($id){
+        $client = Client::find($id);
+        return view('client.detail', compact('client'));
+    }
+
     public function edit($id){
         $client = Client::find($id);
 
