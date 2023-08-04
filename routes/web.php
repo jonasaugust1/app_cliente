@@ -39,6 +39,9 @@ Route::middleware([
 
     Route::get('telephone/add/{id}', [TelephoneController::class, 'add' ])->name('telephone.add');
     Route::post('telephone/save/{id}', [TelephoneController::class, 'save' ])->name('telephone.save');
+    Route::get('telephone/edit/{id}', [TelephoneController::class, 'edit' ])->name('telephone.edit');
+    Route::put('telephone/update/{id}', [TelephoneController::class, 'update' ])->name('telephone.update');
+    Route::get('telephone/delete/{id}', [TelephoneController::class, 'delete'])->name('telephone.delete');
 });
 
 

@@ -40,11 +40,11 @@
                                 <td>{{$phone->ddd}}</td>
                                 <td>{{$phone->phone}}</td>
                                 <td>
-                                    <a class="btn btn-default" href="{{route('client.edit', $client->id)}}">Editar</a>
+                                    <a class="btn btn-default" href="{{route('telephone.edit', $phone->id)}}">Editar</a>
                                     <a
                                         class="btn btn-danger"
                                         href="javascript:(confirm('Deletar esse registro?')) ?
-                                        window.location.href='{{route('client.delete', $client->id)}}' : false "
+                                        window.location.href='{{route('telephone.delete', $phone->id)}}' : false "
                                     >
                                         Deletar
                                     </a>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Telephone;
-use \Session;
+use Illuminate\Support\Facades\Session;
 
 class TelephoneController extends Controller
 {
@@ -31,5 +31,55 @@ class TelephoneController extends Controller
         ]);
 
         return redirect()->route('client.detail', $clientId);
+    }
+
+    public function edit($id){
+        $phone = Telephone::find($id);
+
+        if(!$phone){
+            Session::flash('flash_message', [
+                'msg'=>"Telefone não encontrado.",
+                'class'=>"alert-danger"
+            ]);
+
+            return redirect()->route('client.detail', $phone->client->id);
+        }
+
+        return view('telephone.edit', compact('phone'));
+    }
+
+    public function update(Request $request, $id){
+        $phone = Telephone::find($id);
+
+        if(!$phone){
+            Session::flash('flash_message', [
+                'msg'=>"Telefone não encontrado",
+                'class'=>"alert-danger"
+            ]);
+
+            return redirect()->route('client.detail');
+        }
+
+        $phone->update($request->all());
+
+        Session::flash('flash_message', [
+            'msg'=>"Telefone atualizado com sucesso",
+            'class'=>"alert-success"
+        ]);
+
+        return redirect()->route('client.detail', $phone->client->id);
+    }
+
+    public function delete($id){
+        $phone = Telephone::find($id);
+
+        $phone->delete();
+
+        Session::flash('flash_message', [
+            'msg'=>"Telefone deletado com sucesso",
+            'class'=>"alert-success"
+        ]);
+
+        return redirect()->route('client.detail', $phone->client->id);
     }
 }
