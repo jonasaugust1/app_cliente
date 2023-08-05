@@ -22,14 +22,35 @@
                     <div class="form-group">
                         <label for="name">Nome</label>
                         <input type="text" name="name" class="form-control" placeholder="Nome do cliente"/>
+
+                        @if($errors->has('name'))
+                            <span class="has-error">
+                                <strong>{{$errors->first('name')}}</strong>
+                            </span>
+                        @endif
+
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="text" name="email" class="form-control" placeholder="E-mail do cliente"/>
+
+                        @if($errors->has('email'))
+                            <span class="has-error">
+                                <strong>{{$errors->first('email')}}</strong>
+                            </span>
+                        @endif
+
                     </div>
-                    <div class="form-group">
+                    <div class="form-group {{$errors->has('address') ? 'has-error' : ''}}">
                         <label for="address">Endereço</label>
                         <input type="text" name="address" class="form-control" placeholder="Endereço do cliente"/>
+
+                        @if($errors->has('address'))
+                            <span class="has-error">
+                                <strong>{{$errors->first('address')}}</strong>
+                            </span>
+                        @endif
+
                     </div>
 
                     <button class="btn btn-info">Adicionar</button>

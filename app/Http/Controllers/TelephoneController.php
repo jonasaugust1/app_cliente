@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TelephoneRequest;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Telephone;
@@ -15,7 +16,7 @@ class TelephoneController extends Controller
         return view('telephone.add', compact('client'));
     }
 
-    public function save(Request $request, $clientId){
+    public function save(TelephoneRequest $request, $clientId){
         $phone = new Telephone;
 
         $phone->title = $request->input('title');

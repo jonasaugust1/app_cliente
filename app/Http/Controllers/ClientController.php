@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClientRequest;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use Illuminate\Support\Facades\Session;
@@ -20,7 +21,7 @@ class ClientController extends Controller
         return view('client.add');
     }
 
-    public function save(Request $request){
+    public function save(ClientRequest $request){
         Client::create($request->all());
 
         /*

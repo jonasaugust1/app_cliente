@@ -25,18 +25,42 @@
                     <div class="form-group">
                         <label for="title">Título</label>
                         <input type="text" name="title" class="form-control" placeholder="Telefone pessoal, trabalho..."/>
+
+                        @if($errors->has('title'))
+                            <span class="has-error">
+                                <strong>{{$errors->first('title')}}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="ddi">DDI</label>
                         <input type="text" name="ddi" class="form-control" placeholder="Código do país (+55)"/>
+
+                        @if($errors->has('ddi'))
+                            <span class="has-error">
+                                <strong>{{$errors->first('ddi')}}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="ddd">DDD</label>
                         <input type="text" name="ddd" class="form-control" placeholder="Código do estado (79)"/>
+
+                        @if($errors->has('ddd'))
+                            <span class="has-error">
+                                <strong>{{$errors->first('ddd')}}</strong>
+                            </span>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="phone">Número</label>
                         <input type="text" name="phone" class="form-control" placeholder="99988-7766"/>
+
+                        @if($errors->has('phone'))
+                            <span class="has-error">
+                                <strong>{{$errors->first('phone')}}</strong>
+                            </span>
+                        @endif
                     </div>
 
                     <button class="btn btn-info">Adicionar</button>
